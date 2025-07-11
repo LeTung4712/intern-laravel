@@ -17,6 +17,9 @@ class CalculationObserver
     public function created(Calculation $calculation)
     {
         try {
+            // Delay 5 giây để mô phỏng xử lý nặng
+            sleep(8);
+
             $result = $this->performCalculation(
                 $calculation->number1,
                 $calculation->number2,
@@ -28,7 +31,6 @@ class CalculationObserver
 
             session()->flash('success', 'Kết quả: ' . $result);
         } catch (\Exception $e) {
-          
             Log::error('Calculation error: ' . $e->getMessage());
         }
     }
@@ -42,6 +44,7 @@ class CalculationObserver
      * @return float
      * @throws InvalidArgumentException
      */
+
     protected function performCalculation($number1, $number2, $operation)
     {
         return match ($operation) {

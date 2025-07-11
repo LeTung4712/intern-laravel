@@ -44,8 +44,7 @@ class CalculatorController extends Controller
                 $validated['operation']
             );
 
-            return redirect()->route('calculator.index')
-                ->with('info', $result['message']);
+            return redirect()->route('calculator.index');
         } catch (InvalidArgumentException $e) {
             return redirect()->route('calculator.index')
                 ->withInput()

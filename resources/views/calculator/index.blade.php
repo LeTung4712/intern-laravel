@@ -11,15 +11,16 @@
                         <h4 class="mb-0">Calculator</h4>
                     </div>
                     <div class="card-body">
-                        @if (session('info'))
-                            <div class="alert alert-info">
-                                {{ session('info') }}
-                            </div>
-                        @endif
                         @if (session('success'))
                             <div class="alert alert-success">
                                 {{ session('success') }}
                             </div>
+                        @else
+                            @if (session('info'))
+                                <div class="alert alert-info">
+                                    {{ session('info') }}
+                                </div>
+                            @endif
                         @endif
 
                         @if ($errors->any())

@@ -33,8 +33,7 @@ class CalculatorService extends BaseService
         ]);
 
         return [
-            'calculation' => $calculation,
-            'message' => 'Đang xử lý phép tính của bạn...'
+            'calculation' => $calculation
         ];
     }
 
