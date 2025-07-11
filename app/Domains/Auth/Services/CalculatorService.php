@@ -28,11 +28,6 @@ class CalculatorService extends BaseService
     /**
      * Thực hiện phép tính
      *
-     * @param float $number1
-     * @param float $number2
-     * @param string $operation
-     * @return float
-     * @throws InvalidArgumentException
      */
     protected function performCalculation($number1, $number2, $operation)
     {
@@ -102,7 +97,7 @@ class CalculatorService extends BaseService
      * @param int $perPage
      * @return \Illuminate\Pagination\LengthAwarePaginator
      */
-    public function getHistoryPaginated($perPage = 10)
+    public function getHistoryPaginated($perPage = 5)
     {
         return Calculation::latest()
             ->paginate($perPage);

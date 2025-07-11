@@ -41,7 +41,7 @@ class CalculatorController
     public function history(Request $request)
     {
         try {
-            $perPage = $request->get('per_page', 10);
+            $perPage = $request->get('per_page', 5);
             $calculations = $this->calculatorService->getHistoryPaginated($perPage);
             return response()->json($calculations);
         } catch (\Exception $e) {

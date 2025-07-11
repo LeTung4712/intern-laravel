@@ -5,7 +5,7 @@ namespace App\Providers;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\ServiceProvider;
 use App\Domains\Auth\Models\Calculation;
-use App\Domains\Auth\Observers\CalculationObserver;
+use App\Observers\CalculationObserver;
 
 /**
  * Class AppServiceProvider.

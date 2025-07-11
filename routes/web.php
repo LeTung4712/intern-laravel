@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\LocaleController;
-
+use App\Http\Controllers\CalculatorController;
 /*
  * Global Routes
  *
@@ -15,7 +15,7 @@ Route::get('lang/{lang}', [LocaleController::class, 'change'])->name('locale.cha
  * Frontend Routes
  */
 Route::group(['as' => 'frontend.'], function () {
-    includeRouteFiles(__DIR__.'/frontend/');
+    includeRouteFiles(__DIR__ . '/frontend/');
 });
 
 /*
@@ -24,5 +24,13 @@ Route::group(['as' => 'frontend.'], function () {
  * These routes can only be accessed by users with type `admin`
  */
 Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => 'admin'], function () {
-    includeRouteFiles(__DIR__.'/backend/');
+    includeRouteFiles(__DIR__ . '/backend/');
+});
+
+//tạo route cho phép tính
+Route::group(['prefix' => 'calculator', 'as' => 'calculator.'], function () {
+    Route::get('/', [CalculatorController::class, 'index'])->name('index');
+    Route::post('/calculate', [CalculatorController::class, 'calculate'])->name('calculate');
+    Route::get('/history', [CalculatorController::class, 'history'])->name('history');
+    Route::post('/clear', [CalculatorController::class, 'clearHistory'])->name('clear');
 });
