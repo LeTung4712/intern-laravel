@@ -15,10 +15,10 @@ class CreateCalculationsTable extends Migration
     {
         Schema::create('calculations', function (Blueprint $table) {
             $table->id();
-            $table->integer('number1');
-            $table->integer('number2');
-            $table->string('operation'); // add, subtract
-            $table->float('result');
+            $table->decimal('number1', 15, 2);
+            $table->decimal('number2', 15, 2);
+            $table->string('operation');
+            $table->decimal('result', 15, 2)->nullable();
             $table->timestamps();
         });
     }

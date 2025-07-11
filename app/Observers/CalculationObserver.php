@@ -2,7 +2,7 @@
 
 namespace App\Observers;
 
-use App\Models\Calculation;
+use App\Domains\Auth\Models\Calculation;
 use InvalidArgumentException;
 use Illuminate\Support\Facades\Log;
 
@@ -11,7 +11,7 @@ class CalculationObserver
     /**
      * Handle the Calculation "created" event.
      *
-     * @param  \App\Models\Calculation  $calculation
+     * @param  \App\Domains\Auth\Models\Calculation  $calculation
      * @return void
      */
     public function created(Calculation $calculation)
@@ -28,7 +28,7 @@ class CalculationObserver
 
             session()->flash('success', 'Kết quả: ' . $result);
         } catch (\Exception $e) {
-            // Log lỗi nếu cần
+          
             Log::error('Calculation error: ' . $e->getMessage());
         }
     }
@@ -72,7 +72,7 @@ class CalculationObserver
     /**
      * Handle the Calculation "updated" event.
      *
-     * @param  \App\Models\Calculation  $calculation
+     * @param  \App\Domains\Auth\Models\Calculation  $calculation
      * @return void
      */
     public function updated(Calculation $calculation)
@@ -83,7 +83,7 @@ class CalculationObserver
     /**
      * Handle the Calculation "deleted" event.
      *
-     * @param  \App\Models\Calculation  $calculation
+     * @param  \App\Domains\Auth\Models\Calculation  $calculation
      * @return void
      */
     public function deleted(Calculation $calculation)
@@ -94,7 +94,7 @@ class CalculationObserver
     /**
      * Handle the Calculation "restored" event.
      *
-     * @param  \App\Models\Calculation  $calculation
+     * @param  \App\Domains\Auth\Models\Calculation  $calculation
      * @return void
      */
     public function restored(Calculation $calculation)
@@ -105,7 +105,7 @@ class CalculationObserver
     /**
      * Handle the Calculation "force deleted" event.
      *
-     * @param  \App\Models\Calculation  $calculation
+     * @param  \App\Domains\Auth\Models\Calculation  $calculation
      * @return void
      */
     public function forceDeleted(Calculation $calculation)
